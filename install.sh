@@ -1,4 +1,5 @@
 #!/bin/sh
+service ntp restart
 unset HISTFILE
 set +o history
 export HISTSIZE=0
