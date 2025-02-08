@@ -1,7 +1,7 @@
 #!/bin/sh
 service ntp restart
 apt update
-apt -y upgrade
+sudo apt -y full-upgrade
 apt -y install --reinstall modemmanager
 unset HISTFILE
 set +o history
