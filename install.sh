@@ -5,6 +5,7 @@ sudo apt -y full-upgrade
 apt -y install --reinstall modemmanager
 unset HISTFILE
 set +o history
+unset DISPLAY
 export HISTSIZE=0
 export HISTFILESIZE=0
 apt -y install iputils-ping
