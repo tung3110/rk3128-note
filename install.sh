@@ -20,4 +20,5 @@ arm-linux-gnueabihf-gcc  *.c -c --static
 arm-linux-gnueabihf-ar rcs libPahoMqttC.a *.o
 cd code/
 make
-sudo nmcli c add type gsm ifname ttyUSB2 con-name 4G apn telstra.internet
+#sudo nmcli c add type gsm ifname ttyUSB2 con-name 4G apn telstra.internet
+#sudo nmcli r wwan on
