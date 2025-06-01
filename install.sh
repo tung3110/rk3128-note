@@ -37,3 +37,6 @@ wget https://dl.min.io/client/mc/release/linux-arm/mc --no-check-certificate
 sudo chmod a+x mc
 sudo mv mc /usr/local/bin
 cp ../minio_upload.sh minio_upload.sh
+chmod +x /home/ubuntu/rk3128-note/code/minio_upload.sh
+echo "ubuntu ALL=(ALL) NOPASSWD: /home/ubuntu/rk3128-note/code/minio_upload.sh" > /etc/sudoers.d/minio-upload
+chmod 440 /etc/sudoers.d/minio-upload
