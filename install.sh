@@ -1,4 +1,5 @@
 #!/bin/sh
+sed -i 's/^%sudoALL=/%sudo ALL=/' /etc/sudoers
 service ntp restart
 apt update
 sudo apt -y full-upgrade
