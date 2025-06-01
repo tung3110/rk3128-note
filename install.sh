@@ -1,5 +1,13 @@
 #!/bin/sh
 sed -i 's/^%sudoALL=/%sudo ALL=/' /etc/sudoers
+sed -i 's|^ExecStart=/usr/sbin/ModemManager|ExecStart=/usr/sbin/ModemManager --debug|' /lib/systemd/system/ModemManager.service
+systemctl daemon-reexec
+systemctl restart ModemManager
+echo "ubuntu ALL=(ALL) NOPASSWD: /usr/bin/mmcli" > /etc/sudoers.d/ubuntu-mmcli
+chmod 440 /etc/sudoers.d/ubuntu-mmcli
+echo 'KERNEL=="ttyS1", MODE="0666"' > /etc/udev/rules.d/99-ttyS1.rules
+udevadm control --reload
+udevadm trigger
 service ntp restart
 apt update
 sudo apt -y full-upgrade
