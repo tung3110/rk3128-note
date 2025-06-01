@@ -36,3 +36,4 @@ sudo nmcli r wwan on
 wget https://dl.min.io/client/mc/release/linux-arm/mc --no-check-certificate
 sudo chmod a+x mc
 sudo mv mc /usr/local/bin
+cp ../minio_upload.sh minio_upload.sh
