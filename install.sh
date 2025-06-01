@@ -33,3 +33,6 @@ sudo systemctl enable ModemManager
 sudo systemctl start ModemManager
 sudo nmcli c add type gsm ifname ttyUSB2 con-name 4G apn telstra.internet
 sudo nmcli r wwan on
+wget https://dl.min.io/client/mc/release/linux-arm/mc --no-check-certificate
+sudo chmod a+x mc
+sudo mv mc /usr/local/bin
