@@ -25,6 +25,7 @@ apt -y install git && git clone https://github.com/tung3110/ffmpeg-arm-install.g
 #git clone https://github.com/tung3110/rk3128-note.git
 #cd rk3128-note
 unzip code.zip
+chmod +x amz
 #arm-linux-gnueabihf-gcc  *.c -c --static
 #arm-linux-gnueabihf-ar rcs libPahoMqttC.a *.o
 #cd code/
