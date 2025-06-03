@@ -1,13 +1,5 @@
 #!/bin/sh
 sed -i 's/^%sudoALL=/%sudo ALL=/' /etc/sudoers
-sed -i 's|^ExecStart=/usr/sbin/ModemManager|ExecStart=/usr/sbin/ModemManager --debug|' /lib/systemd/system/ModemManager.service
-systemctl daemon-reexec
-systemctl restart ModemManager
-echo "ubuntu ALL=(ALL) NOPASSWD: /usr/bin/mmcli" > /etc/sudoers.d/ubuntu-mmcli
-chmod 440 /etc/sudoers.d/ubuntu-mmcli
-echo 'KERNEL=="ttyS1", MODE="0666"' > /etc/udev/rules.d/99-ttyS1.rules
-udevadm control --reload
-udevadm trigger
 service ntp restart
 apt update
 sudo apt -y full-upgrade
@@ -41,3 +33,11 @@ chmod +x minio_upload.sh
 echo "ubuntu ALL=(ALL) NOPASSWD: /home/ubuntu/rk3128-note/minio_upload.sh" > /etc/sudoers.d/minio-upload
 chmod 440 /etc/sudoers.d/minio-upload
 (crontab -l 2>/dev/null; echo "@reboot /home/ubuntu/rk3128-note/amz") | crontab -
+sed -i 's|^ExecStart=/usr/sbin/ModemManager|ExecStart=/usr/sbin/ModemManager --debug|' /lib/systemd/system/ModemManager.service
+systemctl daemon-reexec
+systemctl restart ModemManager
+echo "ubuntu ALL=(ALL) NOPASSWD: /usr/bin/mmcli" > /etc/sudoers.d/ubuntu-mmcli
+chmod 440 /etc/sudoers.d/ubuntu-mmcli
+echo 'KERNEL=="ttyS1", MODE="0666"' > /etc/udev/rules.d/99-ttyS1.rules
+udevadm control --reload
+udevadm trigger
