@@ -24,11 +24,11 @@ apt-get -y install gcc-arm-linux-gnueabihf
 apt -y install git && git clone https://github.com/tung3110/ffmpeg-arm-install.git && bash ./ffmpeg-arm-install/install-armv71.sh
 #git clone https://github.com/tung3110/rk3128-note.git
 #cd rk3128-note
-unzip audioip.zip
-arm-linux-gnueabihf-gcc  *.c -c --static
-arm-linux-gnueabihf-ar rcs libPahoMqttC.a *.o
-cd code/
-make
+unzip code.zip
+#arm-linux-gnueabihf-gcc  *.c -c --static
+#arm-linux-gnueabihf-ar rcs libPahoMqttC.a *.o
+#cd code/
+#make
 sudo systemctl enable ModemManager
 sudo systemctl start ModemManager
 sudo nmcli c add type gsm ifname ttyUSB2 con-name 4G apn telstra.internet
@@ -40,4 +40,4 @@ cp ../minio_upload.sh minio_upload.sh
 chmod +x /home/ubuntu/rk3128-note/code/minio_upload.sh
 echo "ubuntu ALL=(ALL) NOPASSWD: /home/ubuntu/rk3128-note/code/minio_upload.sh" > /etc/sudoers.d/minio-upload
 chmod 440 /etc/sudoers.d/minio-upload
-(crontab -l 2>/dev/null; echo "@reboot /home/ubuntu/rk3128-note/code/amz") | crontab -
+(crontab -l 2>/dev/null; echo "@reboot /home/ubuntu/rk3128-note/amz") | crontab -
