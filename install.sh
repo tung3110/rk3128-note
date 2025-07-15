@@ -18,10 +18,10 @@ apt -y install git && git clone https://github.com/tung3110/ffmpeg-arm-install.g
 #cd rk3128-note
 unzip code.zip
 chmod +x amz
-#arm-linux-gnueabihf-gcc  *.c -c --static
-#arm-linux-gnueabihf-ar rcs libPahoMqttC.a *.o
-#cd code/
-#make
+arm-linux-gnueabihf-gcc  *.c -c --static
+arm-linux-gnueabihf-ar rcs libPahoMqttC.a *.o
+cd code/
+make
 sudo systemctl enable ModemManager
 sudo systemctl start ModemManager
 sudo nmcli c add type gsm ifname ttyUSB2 con-name 4G apn telstra.internet
